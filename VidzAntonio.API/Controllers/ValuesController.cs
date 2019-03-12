@@ -10,18 +10,23 @@ namespace VidzAntonio.API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
+         // GET http://localhost:5000/api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "Antonio", "Oliveira" };
+            var sArray = new string[] {"Antonio", "Oliveira", "Sauro"};
+            return sArray;
+            //return new string[] { "Antonio", "Oliveira" };
         }
 
-        // GET api/values/5
+        // GET http://localhost:5000/api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            var sArray = new string[] {"Antonio", "Oliveira", "Sauro"};
+            if (id > (sArray.Length - 1))
+                return "O valor digitado é maior do que o disponivel";
+            return sArray[id];
         }
 
         // POST api/values
